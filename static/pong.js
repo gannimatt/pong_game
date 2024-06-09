@@ -6,7 +6,7 @@ let scoreDisplay = document.getElementById('score');
 let paddleWidth = 10, paddleHeight = 80;
 let upArrowPressed = false, downArrowPressed = false, wPressed = false, sPressed = false;
 let player1Score = 0, player2Score = 0;
-let winningScore = 15;  // Default winning score
+let winningScore = 5;  // Default winning score
 let player1Name = '', player2Name = '';
 let gameRunning = false;  // Track whether the game is running
 
@@ -152,17 +152,44 @@ function updateScore() {
     scoreDisplay.textContent = `${player1Name}: ${player1Score} vs ${player2Score} : ${player2Name}`;
 }
 
+async function saveGameData(player1Name, player2Name, player1Score, player2Score, winningScore, winner) {
+    try {
+        const response = await fetch('/api/games/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                player1Name,
+                player2Name,
+                player1Score,
+                player2Score,
+                winningScore,
+                winner
+            })
+        });
+        const data = await response.json();
+        console.log('Game data saved:', data);
+    } catch (error) {
+        console.error('Error saving game data:', error);
+    }
+}
+
 function checkForWinner() {
     if (player1Score >= winningScore) {
         alert(`${player1Name} wins!`);
         gameRunning = false;
+        saveGameData(player1Name, player2Name, player1Score, player2Score, winningScore, player1Name);
         resetGame();
     } else if (player2Score >= winningScore) {
         alert(`${player2Name} wins!`);
         gameRunning = false;
+        saveGameData(player1Name, player2Name, player1Score, player2Score, winningScore, player2Name);
         resetGame();
     }
 }
+
+
 
 function resetGame() {
     gameRunning = false;  // Stop the game loop

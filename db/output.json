@@ -1,0 +1,20 @@
+[
+    {
+        "_id": "666607f5d9c7ef0b34b6ffcc",
+        "player1Name": "Player 1",
+        "player2Name": "Player 2",
+        "player1Score": 0,
+        "player2Score": 1,
+        "winningScore": 1,
+        "winner": "Player 2"
+    },
+    {
+        "_id": "666607fad9c7ef0b34b6ffcd",
+        "player1Name": "a",
+        "player2Name": "b",
+        "player1Score": 1,
+        "player2Score": 0,
+        "winningScore": 1,
+        "winner": "a"
+    }
+]

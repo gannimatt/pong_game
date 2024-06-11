@@ -23,5 +23,5 @@ jobs:
         working-directory: test
 
       - name: Build Docker image
-        run: docker build -t pong/demoapp:1.0
+        run: docker build -t pong/demoapp:1.0 .
         working-directory: .

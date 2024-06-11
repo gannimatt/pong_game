@@ -3,11 +3,11 @@ import os
 from pymongo import MongoClient
 
 DB_DIR = 'db'
-DB_FILE = 'output.json'
+DB_FILE = 'dump.json'
 
 # MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')  # Adjust the connection string as needed
-db = client['game_database']
+db = client['pong_game']
 collection = db['game_sessions']
 
 # Function to check if the database location and file exist

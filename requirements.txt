@@ -1,2 +1,7 @@
+#python
 flask
 pymongo
+pytest
+#js
+#npm install mocha chai
+

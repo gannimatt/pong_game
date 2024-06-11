@@ -14,9 +14,6 @@ def save_game():
     store_game_result(data['player1Name'], data['player2Name'], data['player1Score'],
                       data['player2Score'], data['winningScore'], data['winner'])
     return jsonify({'status': 'success'}), 201
-
-@atexit.register
-def on_exit():
     dump_data_to_file()
 
 if __name__ == '__main__':

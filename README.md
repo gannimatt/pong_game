@@ -53,4 +53,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ### Notes for Customization:
 
-- **Repository URL:**https://github.com/PPY-2024/pong_s29046
+- **Repository URL:**https://github.com/gannimatt/pong_game
